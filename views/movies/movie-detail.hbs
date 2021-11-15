@@ -1,0 +1,25 @@
+<h2>{{response.title}}</h2>
+
+<div>
+  <p>Title: {{response.title}}</p>
+  <p>Genre: {{response.genre}}</p>
+  <p>Plot: {{response.plot}}</p>
+  <ul>Cast:
+    {{#each response.cast}}
+      <li>
+        <ul>
+          <li>Name: {{this.name}}</li>
+          <li>Occupation: {{this.occupation}}</li>
+          <li>Catch Phrase: {{this.catchPhrase}}</li>
+        </ul>
+      </li>
+    {{/each}}
+  </ul>
+  <form method="POST" action="/movies/{{response._id}}/delete">
+    <button class="btn btn-danger" type="submit">DELETE</button>
+  </form>
+  <a href="/movies/{{response._id}}/edit"><button
+      class="btn btn-warning"
+      type="submit"
+    >EDIT</button></a>
+</div>

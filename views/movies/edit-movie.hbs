@@ -1,0 +1,48 @@
+<h2>Edit {{response.title}}</h2>
+
+<form method="POST" action="/movies/{{response._id}}/edit">
+  <div class="mb-3">
+    <label class="form-label">Title of the movie</label>
+    <input
+      class="form-control"
+      type="text"
+      name="title"
+      value="{{response.title}}"
+    />
+    <br />
+    <label class="form-label">Genre</label>
+    <input
+      class="form-control"
+      type="text"
+      name="genre"
+      value="{{response.genre}}"
+    />
+    <br />
+    <br />
+    <label class="form-label">Plot</label>
+    <input
+      class="form-control"
+      type="text"
+      name="plot"
+      value="{{response.plot}}"
+    />
+    <br />
+
+    <label for="cast">Choose the cast:</label>
+    <select name="cast" multiple>
+      {{#each celeb}}
+
+        <option
+          value="{{this._id}}"
+         {{#if this.selected}}
+         selected
+         {{/if}}
+        >{{this.name}}</option>
+
+      {{/each}}
+    </select>
+    <br />
+
+    <button class="btn btn-danger" type="submit">EDIT</button>
+  </div>
+</form>
